@@ -388,6 +388,7 @@
                             success: function (){
                                 alert("Başarılı!");
                                 $("#modal_category_update").css("display","none");
+                                reloadTableData("#myTable");
                                 reloadTableData("#myTable2");
                             },
                             error: function (){
