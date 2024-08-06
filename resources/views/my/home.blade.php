@@ -398,7 +398,7 @@
                     }));
                 }
                 else if(button_id === "#delete_task"){
-                    $("#delete_task_button").click(function (){
+                    $("#delete_task_button").off("click").on("click",function (){
                         $.ajax({
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -419,19 +419,19 @@
 
                 }
                 else if(button_id === "#delete_category"){
-                    $("#delete_category_button").click(function (){
+                    $("#delete_category_button").off("click").on("click",function (){
                         $.ajax({
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             },
-                            url:"/categoryDelete",
+                            url:"categoryDelete",
                             type:"DELETE",
                             data:{id:id_row},
                             success:function (){
                                 alert("Başarılı!");
                                 $("#modal_category_delete").css("display","none");
-                                reloadTableData("#myTable")
                                 reloadTableData("#myTable2")
+                                reloadTableData("#myTable")
                                 reloadSelectOptions();
                             },
                             error:function (){
